@@ -1,15 +1,16 @@
 import "./styles.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function App() {
-  //let isActive = false;
-  let [isActive, toggleActive] = useState("true");
+  let [isActive, toggleActive] = useState(false);
 
   function handleClick() {
     toggleActive(!isActive);
-    // Check that the value changes correctly.
-    console.log(isActive);
   }
+
+  useEffect(() => {
+    console.log(isActive);
+  }, [isActive]);
 
   return (
     <main>
