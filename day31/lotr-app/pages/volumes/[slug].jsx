@@ -1,13 +1,23 @@
 import Link from "next/link.js";
 import { volumes } from "../../resources/lib/data.js";
 import Image from "next/image";
+import { useRouter } from "next/router.js";
+import Head from "next/head.js";
 
 export default function Volumes() {
-  let movie = volumes.find(({ slug }) => slug === "the-fellowship-of-the-ring");
-  console.log("movie stuff", movie);
+  const router = useRouter();
+  const { slug } = router.query;
+
+  let movie = volumes.find((volume) => volume.slug === slug);
+  if (!movie) {
+    return <div>Loading....</div>;
+  }
 
   return (
     <>
+      <Head>
+        <title>{movie.title}</title>
+      </Head>
       <div>
         <Link href="/volumes" h2>
           ← All Volumes
