@@ -19,9 +19,7 @@ export default function Volumes() {
         <title>{movie.title}</title>
       </Head>
       <div>
-        <Link href="/volumes" h2>
-          ← All Volumes
-        </Link>
+        <Link href="/volumes">← All Volumes</Link>
         <h1>{movie.title}</h1>
         <p>{movie.description}</p>
         <Image src={movie.cover} alt="image" width={200} height={300} />
